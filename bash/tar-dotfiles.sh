@@ -28,8 +28,13 @@ fi
 ## Exit script immediately if error occurs
 set -e
 
+# TODO: REMOVE
+sleep 5
+
 tar_fileanme="dotfiles_backup.tar"
-tar_dirname="archives"
+# tar_dirname="archives"
+tar_dirname="fake"
+err_filename="script-error.txt"
 
 # Check to see if archive directory exists, exit if it does not.
 # Check to see if old tar file exists and delete it if it does.
@@ -44,8 +49,7 @@ then
                 echo
         fi
 else
-        # TODO: We could log is output
-        printf "Directory: $tar_dirname does not exist. Exiting!\n"
+        printf "$(date) $HOME/bashscripts/tar-dotfiles.sh ERROR: 1\n" >> "$HOME"/logfiles/script-error.txt
         exit
 fi
 
