@@ -28,46 +28,36 @@ fi
 ## Exit script immediately if error occurs
 set -e
 
-# TODO: REMOVE
-sleep 5
-
+tar_dirname="archives"
+# tar_dirname="fake"
 tar_fileanme="dotfiles_backup.tar"
-# tar_dirname="archives"
-tar_dirname="fake"
+tar_filepath="$HOME/archives/dotfiles_backup.tar"
 err_filename="script-error.txt"
+log_dirname="logfiles"
+temp_dirname="temp_dots"
 
-# Check to see if archive directory exists, exit if it does not.
-# Check to see if old tar file exists and delete it if it does.
+## Check to see if archive directory exists, exit if it does not.
+## Check to see if old tar file exists and delete it if it does.
 if [ -d "$HOME"/"$tar_dirname" ]
 then
         if [ -f "$HOME"/"$tar_dirname"/"$tar_filename" ]
         then
                 rm "$HOME"/"$tar_dirname"/"$tar_filename"
-        else
-                #TODO: We could log is output
-                # printf "File: $tar_filename does not exist\n"
-                echo
+                echo "old file removed"
         fi
 else
-        printf "$(date) $HOME/bashscripts/tar-dotfiles.sh ERROR: 1\n" >> "$HOME"/logfiles/script-error.txt
+        # printf "$(date) $HOME/bashscripts/tar-dotfiles.sh ERROR: 1\n" >> "$HOME"/"$log_dirname"/"$err_filename"
+        echo "Error: 1 logged"
         exit
 fi
 
-
-temp_dirname="temp_dots"
-
 # Check if temporary directory exists, delete any files if it does
 # create if if doesn't
-if [ -d "$HOME"/"$temp_dirname" ]
+if [ ! -d "$HOME"/"$temp_dirname" ]
 then
-        # TODO: chick if dir is empty or not
-        # rm  "$HOME"/"$temp_dirname"/*
-        echo
-else
         mkdir "$HOME"/"$temp_dirname"
+        echo "$temp_dirname dir create"
 fi
-
-sleep 6
 
 # Copy the dot files.
 if [ -d "$HOME"/"$temp_dirname" ]
@@ -79,7 +69,18 @@ then
         cp "$HOME"/.gitconfig "$HOME"/"$temp_dirname"/gitconfig.bak
         cp "$HOME"/.nanorc "$HOME"/"$temp_dirname"/nanorc.bak
         # cp "$HOME"/. "$HOME"/"temp_dirname"/
+        echo "Files copies"
 fi
+
+if [ -f "$HOME"/"$temp_dirname"/bashrc.bak ]
+then
+        tar -cf "$tar_filepath" "$HOME"/"$temp_dirname"/*.bak
+else
+        echo "Error: 2"
+fi
+
+# rm "$HOME"/"$temp_dirname"/*
+# rm -r "$HOME"/"$temp_dirname"
 
 exit
 
