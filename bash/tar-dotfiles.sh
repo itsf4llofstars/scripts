@@ -39,11 +39,24 @@ then
         then
                 rm "$HOME"/"$tar_dirname"/"$tar_filename"
         else
+                #TODO: We could log is output
                 printf "File: $tar_filename does not exist\n"
         fi
 else
+        # TODO: We could log is output
         printf "Directory: $tar_dirname does not exist. Exiting!\n"
         exit
+fi
+
+temp_dirname="temp_dots"
+
+# Check if temporary directory exists, delete any files if it does
+# create if if doesn't
+if [ -d "$HOME"/"$temp_dirname" ]
+then
+        rm "$HOME"/"$temp_dirname"/*
+else
+        mkdir "$HOME"/"$temp_dirname"
 fi
 
 exit
