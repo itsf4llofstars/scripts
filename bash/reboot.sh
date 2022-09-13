@@ -33,6 +33,6 @@ fi
 set -e
 
 ## Output date time to log text file
-echo "[$(date +'%FT%R:%S%:::z')00] ~/bashscripts/reboot.sh (Raspberry pi 4 [re]boot)" >> "$HOME"/logfiles/raspi-log.txt
+echo "[$(date +'%FT%R:%S%:::z')00] ~/bashscripts/reboot.sh (Raspberry pi 4 [re]boot)" >> "$HOME"/directory/.../file.ext
 
 exit
