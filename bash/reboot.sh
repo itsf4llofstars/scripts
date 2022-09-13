@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #: TITLE:       reboot.sh
-#: DATE:        22/09/08 ymd
+#: DATE:        22/09/08 - YMD
 #: AUTHOR:      GitHub: itsf4llofstars
 #: VERSION:     0.1.0
 #: DESCRPTION:  Logs a single line reboot message to a log text file
