@@ -20,3 +20,21 @@ $ ./reboot.sh --help
 
 Calling the scritp with the -h or --help options will not log a reboot message. The -h or --help<br>
 options clears the terminal and prints a simple help text to the screen.
+
+## Using Cron
+
+If you have a cron scheduler you can use this script in that service.<br>
+Launch crontab with:
+
+```
+$ crontab -e
+```
+
+Add:
+
+> @reboot "$HOME"/path(s)_to_script/reboot.sh
+
+to your crontab.<br>
+
+Use [Google](https://www.google.com) or [duckduckgo](https://www.duckduckgo.com) to search on how to install a cron scheduler and how to enable<br>
+the cron daemon.
