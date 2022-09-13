@@ -25,24 +25,30 @@ EOF
     exit
 fi
 
+function slp {
+        sleep 4
+}
+
 ## Exit script immediately if error occurs
 set -e
 
 tar_dirname="archives"
-# tar_dirname="fake"
 tar_fileanme="dotfiles_backup.tar"
-tar_filepath="$HOME/archives/dotfiles_backup.tar"
+
 err_filename="script-error.txt"
 log_dirname="logfiles"
+
 temp_dirname="temp_dots"
+tar_filepath="$HOME/archives/dotfiles_backup.tar"
+temp_filepath="$HOME/temp_dots"
 
 ## Check to see if archive directory exists, exit if it does not.
 ## Check to see if old tar file exists and delete it if it does.
 if [ -d "$HOME"/"$tar_dirname" ]
 then
-        if [ -f "$HOME"/"$tar_dirname"/"$tar_filename" ]
+        if [ -f "$tar_filepath" ]
         then
-                rm "$HOME"/"$tar_dirname"/"$tar_filename"
+                rm "$tar_filepath"
                 echo "old file removed"
         fi
 else
@@ -50,17 +56,19 @@ else
         echo "Error: 1 logged"
         exit
 fi
+slp
 
 # Check if temporary directory exists, delete any files if it does
 # create if if doesn't
-if [ ! -d "$HOME"/"$temp_dirname" ]
+if [ ! -d "$temp_filepath" ]
 then
-        mkdir "$HOME"/"$temp_dirname"
-        echo "$temp_dirname dir create"
+        mkdir "$temp_filepath"
+        echo "$temp_filepeath created."
 fi
+slp
 
 # Copy the dot files.
-if [ -d "$HOME"/"$temp_dirname" ]
+if [ -d "$temp_filepath" ]
 then
         cp "$HOME"/.bashrc "$HOME"/"$temp_dirname"/bashrc.bak
         cp "$HOME"/.bash_aliases "$HOME"/"$temp_dirname"/bash_aliases.bak
@@ -71,16 +79,23 @@ then
         # cp "$HOME"/. "$HOME"/"temp_dirname"/
         echo "Files copies"
 fi
+slp
 
-if [ -f "$HOME"/"$temp_dirname"/bashrc.bak ]
+if [ -f "$temp_filepath"/bashrc.bak ]
 then
-        tar -cf "$tar_filepath" "$HOME"/"$temp_dirname"/*.bak
+        tar -cf "$tar_filepath" "$temp_dirpath"/*.bak
+        echo "Archive created"
 else
         echo "Error: 2"
 fi
+slp
 
-# rm "$HOME"/"$temp_dirname"/*
-# rm -r "$HOME"/"$temp_dirname"
+if [ -f "$tar_filepath" ]
+then
+        rm "$HOME"/"$temp_dirname"/*
+        rm -r "$HOME"/"$temp_dirname"
+        echo "Erased"
+fi
 
 exit
 
