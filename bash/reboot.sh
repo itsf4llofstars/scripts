@@ -7,9 +7,6 @@
 #: DESCRPTION:  Logs a single line reboot message to a log text file
 #: OPTIONS:     -h, --help,
 
-#: NOTES        In the @reboot example under the help EOF txt the $HOME will need
-#:              to be wrapped in double quotes "$HOME" for the actual crontab call.
-
 #: Display help text
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     clear
