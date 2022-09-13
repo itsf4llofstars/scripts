@@ -11,14 +11,19 @@ repository sould that be needed.
 
 ### Python
 ---
-None as of yet.<br><br>
++ None as of yet.<br><br>
+
+<br>
 
 ### Bash
 ---
++ reboot.sh
+
+<br>
 
 ### Sh
 ---
-None as of yet.<br><br>
++ None as of yet.<br><br>
 
 
 <br>
