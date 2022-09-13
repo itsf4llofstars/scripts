@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+venv/
+.vscode/
+vscode/
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
