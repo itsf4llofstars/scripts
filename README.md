@@ -1,8 +1,10 @@
 # The scripts Repository
 
-This repository is comprised of single file, quick running scripts that can be used to automate your<br>
-common computer task. Languages used in this repository are: Python, bash and sh. More languages may<br>
-be added in the future.
+This repository is comprised of mostly single file, quick running scripts that can be used to<br>
+automate your common computer task. Languages used in this repository are: Python, bash and sh. More<br>
+languages may be added in the future. Although this is mostly single file, there are a few instances<br>
+where calling a python script from a bash script is required, this is not a problem for this<br>
+repository sould that be needed.
 
 ## Scipts By Language
 <br>
