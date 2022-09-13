@@ -17,16 +17,18 @@ cat << EOF
 Logs a single line reboot message with date and time of reboot to a log text
 file. Good for being called by a crontab schedule.
 
-ex.
-@reboot $HOME/directory/.../reboot.sh
+If included see additional reboot.md file for additional notes.
+
+crontab example
+@reboot "\$HOME"/path(s)_to_script/reboot.sh
 
 Call:
-$ reboot.sh [options]
+$ ./reboot.sh [options]
 
 options
     -h, --help  This help text.
 EOF
-    exit 0
+    exit
 fi
 
 ## Exit script immediately if error occurs
