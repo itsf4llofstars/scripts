@@ -11,10 +11,13 @@
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     clear
     cat <<EOF
+Adds common dotfiles (configuration files) to a tar file
+in an directory of the user choice. Good if used with crontab scheduler.
 
+If included see tar-dotfiles.md file for additional notes.
 
 Call:
-$ ./reboot.sh [options]
+$ ./tar-dotfile.sh [options]
 
 options
     -h, --help  This help text.
@@ -25,7 +28,22 @@ fi
 ## Exit script immediately if error occurs
 set -e
 
-## Output date time to log text file
-echo "[$(date +'%FT%R:%S%:::z')00] ~/bashscripts/reboot.sh (Raspberry pi 4 [re]boot)" >>"$HOME"/directory/.../file.ext
+tar_fileanme="dotfiles_backup.tar"
+tar_dirname="archives"
+
+# Check to see if archive directory exists, exit if it does not.
+# Check to see if old tar file exists and delete it if it does.
+if [ -d "$HOME"/"$tar_dirname" ]
+then
+        if [ -f "$HOME"/"$tar_dirname"/"$tar_filename" ]
+        then
+                rm "$HOME"/"$tar_dirname"/"$tar_filename"
+        else
+                printf "File: $tar_filename does not exist\n"
+        fi
+else
+        printf "Directory: $tar_dirname does not exist. Exiting!\n"
+        exit
+fi
 
 exit
