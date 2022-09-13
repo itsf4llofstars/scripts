@@ -10,7 +10,7 @@
 #: Display help text
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     clear
-cat << EOF
+    cat <<EOF
 Logs a single line reboot message with date and time of reboot to a log text
 file. Good for being called by a crontab schedule.
 
@@ -32,6 +32,6 @@ fi
 set -e
 
 ## Output date time to log text file
-echo "[$(date +'%FT%R:%S%:::z')00] ~/bashscripts/reboot.sh (Raspberry pi 4 [re]boot)" >> "$HOME"/directory/.../file.ext
+echo "[$(date +'%FT%R:%S%:::z')00] ~/bashscripts/reboot.sh (Raspberry pi 4 [re]boot)" >>"$HOME"/directory/.../file.ext
 
 exit
