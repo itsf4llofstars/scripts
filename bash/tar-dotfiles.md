@@ -3,53 +3,46 @@
 ```
 #!/usr/bin/env bash
 
-tar_fileanme="dotfiles_backup.tar"
-tar_dirname="archives"
+ARCHIVE_PATH="$HOME/archives"
+ARCHVIE_FILE="dotfiles-backup.tar"
+ARCHIVE_PATHFILE="$HOME/archives/dotfiles-backup.tar"
+TEMP_PATH="$HOME/temp_dots"
+LOG_FILE="$HOME/logfiles/script_error.txt"
 
-# Check to see if archive directory exists, exit if it does not.
-# Check to see if old tar file exists and delete it if it does.
-if [ -d "$HOME"/"$tar_dirname" ]
-then
-        if [ -f "$HOME"/"$tar_dirname"/"$tar_filename" ]
-        then
-                rm "$HOME"/"$tar_dirname"/"$tar_filename"
-        else
-                #TODO: We could log is output
-                # printf "File: $tar_filename does not exist\n"
-                echo
-        fi
-else
-        # TODO: We could log is output
-        printf "Directory: $tar_dirname does not exist. Exiting!\n"
-        exit
+# if [ -d "$TEMP_PATH" ]; then
+#         rm -r "$TEMP_PATH"
+#         echo "$TEMP_PATH removed" >>"$LOG_FILE"
+# fi
+
+if [ ! -d "$TEMP_PATH" ]; then
+        mkdir "$TEMP_PATH"
+        echo "$TEMP_PATH created" >>"$LOG_FILE"
 fi
 
+if [ -d "$TEMP_PATH" ]; then
+        cp "$HOME"/.bashrc "$TEMP_PATH"/bashrc.bak
+        cp "$HOME"/.bash_aliases "$TEMP_PATH"/bash_aliases.bak
+        cp "$HOME"/.vimrc "$TEMP_PATH"/vimrc.bak
+        cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
+        cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
+        cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
 
-temp_dirname="temp_dots"
-
-# Check if temporary directory exists, delete any files if it does
-# create if if doesn't
-if [ -d "$HOME"/"$temp_dirname" ]
-then
-        # TODO: chick if dir is empty or not
-        # rm  "$HOME"/"$temp_dirname"/*
-        echo
-else
-        mkdir "$HOME"/"$temp_dirname"
+        echo "Files Copied" >>"$LOG_FILE"
 fi
 
-sleep 6
-
-# Copy the dot files.
-if [ -d "$HOME"/"$temp_dirname" ]
-then
-        cp "$HOME"/.bashrc "$HOME"/"$temp_dirname"/bashrc.bak
-        cp "$HOME"/.bash_aliases "$HOME"/"$temp_dirname"/bash_aliases.bak
-        cp "$HOME"/.vimrc "$HOME"/"$temp_dirname"/vimrc.bak
-        cp "$HOME"/.tmux.conf "$HOME"/"$temp_dirname"/tmux.conf.bak
-        cp "$HOME"/.gitconfig "$HOME"/"$temp_dirname"/gitconfig.bak
-        cp "$HOME"/.nanorc "$HOME"/"$temp_dirname"/nanorc.bak
-        # cp "$HOME"/. "$HOME"/"temp_dirname"/
+if [ -f "$ARCHIVE_PATHFILE" ]; then
+        rm "$ARCHIVE_PATHFILE"
+        echo "$ARCHIVE_PATHFILE removed" >>"$LOG_FILE"
 fi
+
+cd "$TEMP_PATH"
+tar -cf "$ARCHIVE_PATHFILE" .
+cd "$HOME"
+
+if [ -f "$ARCHIVE_PATHFILE" ]; then
+        rm -r "$TEMP_PATH"
+fi
+
+printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
+
 ```
-
