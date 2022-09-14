@@ -51,7 +51,7 @@ if [ -d "$TEMP_PATH" ]; then
         cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
         cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
         cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
-        # cp "$HOME"/. "$TEMP_PATH"/.bak
+        # cp "$HOME"/.file "$TEMP_PATH"/file.bak
 fi
 
 ## Checs if tar file exists in ARCHIVE_PATHFILE and deletes it if it doex
