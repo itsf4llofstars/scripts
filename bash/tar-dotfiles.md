@@ -28,7 +28,7 @@ $ tar-dotfiles.sh
 from any directory will run the script. Should you want to run it as a cron in crontab, set you<br>
 crontab -e as follows.
 
-> \* \* \* \* \* "\$HOME"/path_to_script/tar-dotfiles.sh >> "\$HOME"/path_to_log/logfile
+> n n n n n "\$HOME"/path_to_script/tar-dotfiles.sh >> "\$HOME"/path_to_log/logfile
 
 See [Cron Guru](https://www.cronguru.com) for a better understanding of setting crontab times.<br>
 
