@@ -1,5 +1,33 @@
 # tar-files.sh
 
+This script creates a temporary directory called temp_dots and copies core dotfilesfrom the home<br>
+directory to the temporary directory. The script will then create a non-zipped tar-ball in the<br>
+archives directory. The will delete any occurance of the temp_dots and or the tar file if either<br>
+should exists when the script is run. This will ensure that old date is cleaned before creating a<br>
+new tar file.
+
+## Running tar-dotfiles.sh
+
+The script can be run by typing:
+
+```
+$ ./tar-dotfiles.sh
+```
+
+from within the files directory. If the script is in the path:
+
+```
+$ ./tar-dotfiles.sh
+```
+
+from any directory will run the script. Should you want to run it as a cron in crontab, set you<br>
+crontab -e as follows.
+
+> [DATE/TIME to run] "$HOME"/path_to_script/tar-dotfiles.sh [>> "$HOME"/path_to_log/logfile
+
+Sed [Cron Guru](https://www.cronguru.com) for a better understanding of setting crontab times.
+
+# {{{ SCRIPT
 ```
 #!/usr/bin/env bash
 
@@ -46,3 +74,4 @@ fi
 printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
 
 ```
+# }}}
