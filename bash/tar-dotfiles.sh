@@ -33,9 +33,9 @@ TEMP_PATH="$HOME/temp_dots"
 LOG_FILE="$HOME/logfiles/script_error.txt"
 
 ## Checks if TEMP_PATH exists and deletes it if it does
-# if [ -d "$TEMP_PATH" ]; then
-#         rm -r "$TEMP_PATH"
-# fi
+if [ -d "$TEMP_PATH" ]; then
+        rm -r "$TEMP_PATH"
+fi
 
 ## If the TEMP_PATH does not exist it is created here
 if [ ! -d "$TEMP_PATH" ]; then
