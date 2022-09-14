@@ -38,8 +38,8 @@ Runnig the script with the -h or --help option,
 $ ./tar-dotfiles.sh [-h|--help]
 ```
 
-Will clear the terminal and print a short help text. The script will not create the tar file if the<br>
--h or --help options are passed.<br>
+Will clear the terminal and print a short help text. The script will not create the tar file if<br>
+the -h or --help options are passed.<br>
 
 
 <br>
@@ -47,17 +47,16 @@ Will clear the terminal and print a short help text. The script will not create 
 ---
 ## Script Maintenance
 
-The script should be setup so as to only have to change the Constant filename and pathname
-variables<br>
-section to the names you wish. Also you change, add or subtract additional files in section where<br>
-the dot files are copied to the TEMP_PATH variable. A commented line has been added to ease files<br>
-addition.
+The script should be setup so as to only have to change the Constant filename and pathname<br>
+variables section to the names you wish. Also you change, add or subtract additional files in<br>
+section where the dot files are copied to the TEMP_PATH variable. A commented line has been added<br>
+to ease files addition.
 
 > \# cp "\$HOME"/.file "$TEMP_PAtH"/file.bak
 
-I'm sure there better ways for creating this type of tar. Till we explore them it is reccomened to
-not forgo the the script deleting old directories and old tar files. This ensures that your archive
-has the most up to date file data.
+I'm sure there better ways for creating this type of tar. Till we explore them it is reccomened to<br>
+not forgo the the script deleting old directories and old tar files. This ensures that your<br>
+archive has the most up to date file data.
 
 <br>
 
