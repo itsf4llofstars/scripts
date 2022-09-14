@@ -1,4 +1,4 @@
-# tar-files.sh
+# tar-dotfiles.sh
 
 This script creates a temporary directory called temp_dots and copies core dotfilesfrom the home<br>
 directory to the temporary directory. The script will then create a non-zipped tar-ball in the<br>
@@ -6,6 +6,9 @@ archives directory. The will delete any occurance of the temp_dots and or the ta
 should exists when the script is run. This will ensure that old date is cleaned before creating a<br>
 new tar file.
 
+<br>
+
+---
 ## Running tar-dotfiles.sh
 
 The script can be run by typing:
@@ -25,23 +28,41 @@ crontab -e as follows.
 
 > \* \* \* \* \* "\$HOME"/path_to_script/tar-dotfiles.sh >> "\$HOME"/path_to_log/logfile
 
-Sed [Cron Guru](https://www.cronguru.com) for a better understanding of setting crontab times.
+See [Cron Guru](https://www.cronguru.com) for a better understanding of setting crontab times.<br>
 
+Runnig the script with the -h or --help option,
+
+```
+$ ./tar-dotfiles.sh [-h|--help]
+```
+
+Will clear the terminal and print a short help text. The script will not create the tar file if the<br>
+-h or --help options are passed.<br>
+
+
+<br>
+
+---
 ## Script Maintenance
 
 The script should be setup so as to only have to change the Constant filename and pathname
 variables<br>
-section to the names you wish. Also you change, add or subtract additional files in section where
-the dot files are copied to the TEMP_PATH variable. A commented line has been added to ease files
+section to the names you wish. Also you change, add or subtract additional files in section where<br>
+the dot files are copied to the TEMP_PATH variable. A commented line has been added to ease files<br>
 addition.
 
-> # cp "$HOME"/.file "$TEMP_PAtH"/file.bak
+> \# cp "\$HOME"/.file "$TEMP_PAtH"/file.bak
 
 I'm sure there better ways for creating this type of tar. Till we explore them it is reccomened to
 not forgo the the script deleting old directories and old tar files. This ensures that your archive
 has the most up to date file data.
 
-# {{{ SCRIPT
+<br>
+
+---
+## The Script
+
+Below is the script minus the help menu and documentation.<br>
 ```
 #!/usr/bin/env bash
 
@@ -88,4 +109,3 @@ fi
 printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
 
 ```
-# }}}
