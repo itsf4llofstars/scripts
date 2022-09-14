@@ -27,6 +27,20 @@ crontab -e as follows.
 
 Sed [Cron Guru](https://www.cronguru.com) for a better understanding of setting crontab times.
 
+## Script Maintenance
+
+The script should be setup so as to only have to change the Constant filename and pathname
+variables<br>
+section to the names you wish. Also you change, add or subtract additional files in section where
+the dot files are copied to the TEMP_PATH variable. A commented line has been added to ease files
+addition.
+
+> # cp "$HOME"/.file "$TEMP_PAtH"/file.bak
+
+I'm sure there better ways for creating this type of tar. Till we explore them it is reccomened to
+not forgo the the script deleting old directories and old tar files. This ensures that your archive
+has the most up to date file data.
+
 # {{{ SCRIPT
 ```
 #!/usr/bin/env bash
