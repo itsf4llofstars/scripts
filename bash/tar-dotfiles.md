@@ -17,7 +17,7 @@ $ ./tar-dotfiles.sh
 from within the files directory. If the script is in the path:
 
 ```
-$ ./tar-dotfiles.sh
+$ tar-dotfiles.sh
 ```
 
 from any directory will run the script. Should you want to run it as a cron in crontab, set you<br>
