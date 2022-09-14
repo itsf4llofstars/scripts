@@ -18,6 +18,7 @@ repository sould that be needed.
 ### Bash
 ---
 + reboot.sh
++ tar-dotfiles.sh
 
 <br>
 
