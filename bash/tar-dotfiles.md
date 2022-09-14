@@ -62,7 +62,7 @@ has the most up to date file data.
 ---
 ## The Script
 
-Below is the script minus the help menu and documentation.<br>
+Below is the script minus the help menu and documentation.<br><br>
 ```
 #!/usr/bin/env bash
 
@@ -72,14 +72,12 @@ ARCHIVE_PATHFILE="$HOME/archives/dotfiles-backup.tar"
 TEMP_PATH="$HOME/temp_dots"
 LOG_FILE="$HOME/logfiles/script_error.txt"
 
-# if [ -d "$TEMP_PATH" ]; then
-#         rm -r "$TEMP_PATH"
-#         echo "$TEMP_PATH removed" >>"$LOG_FILE"
-# fi
+if [ -d "$TEMP_PATH" ]; then
+        rm -r "$TEMP_PATH"
+fi
 
 if [ ! -d "$TEMP_PATH" ]; then
         mkdir "$TEMP_PATH"
-        echo "$TEMP_PATH created" >>"$LOG_FILE"
 fi
 
 if [ -d "$TEMP_PATH" ]; then
@@ -89,13 +87,11 @@ if [ -d "$TEMP_PATH" ]; then
         cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
         cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
         cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
-
-        echo "Files Copied" >>"$LOG_FILE"
+        # cp "$HOME"/.file "$TEMP_PATH"/file.bak
 fi
 
 if [ -f "$ARCHIVE_PATHFILE" ]; then
         rm "$ARCHIVE_PATHFILE"
-        echo "$ARCHIVE_PATHFILE removed" >>"$LOG_FILE"
 fi
 
 cd "$TEMP_PATH"
@@ -109,3 +105,4 @@ fi
 printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
 
 ```
+
