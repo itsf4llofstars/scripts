@@ -72,4 +72,3 @@ fi
 
 ## Logs scritp run to a log file
 printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
-
