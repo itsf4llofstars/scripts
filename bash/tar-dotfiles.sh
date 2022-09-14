@@ -35,13 +35,11 @@ LOG_FILE="$HOME/logfiles/script_error.txt"
 ## Checks if TEMP_PATH exists and deletes it if it does
 # if [ -d "$TEMP_PATH" ]; then
 #         rm -r "$TEMP_PATH"
-#         # echo "$TEMP_PATH removed" >>"$LOG_FILE"
 # fi
 
 ## If the TEMP_PATH does not exist it is created here
 if [ ! -d "$TEMP_PATH" ]; then
         mkdir "$TEMP_PATH"
-        # echo "$TEMP_PATH created" >>"$LOG_FILE"
 fi
 
 ## Checks if TEMP_PATH exists and if so copies the dot files
@@ -53,14 +51,12 @@ if [ -d "$TEMP_PATH" ]; then
         cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
         cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
         cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
-
-        # echo "Files Copied" >>"$LOG_FILE"
+        # cp "$HOME"/. "$TEMP_PATH"/.bak
 fi
 
 ## Checs if tar file exists in ARCHIVE_PATHFILE and deletes it if it doex
 if [ -f "$ARCHIVE_PATHFILE" ]; then
         rm "$ARCHIVE_PATHFILE"
-        # echo "$ARCHIVE_PATHFILE removed" >>"$LOG_FILE"
 fi
 
 ## Changes working directory to TERMP_PATH and creates the tar file
