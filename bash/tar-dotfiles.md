@@ -4,7 +4,9 @@ This script creates a temporary directory called temp_dots and copies core dotfi
 directory to the temporary directory. The script will then create a non-zipped tar-ball in the<br>
 archives directory. The will delete any occurance of the temp_dots and or the tar file if either<br>
 should exists when the script is run. This will ensure that old date is cleaned before creating a<br>
-new tar file.
+new tar file. The last line of the script prints to a file for logging purposes. This log print<br>
+does not neccesarily mean that the tar file was created but that the script did no exit prior to<br>
+the logging print line. The user will have to ensure that path to the logfile exists.
 
 <br>
 
