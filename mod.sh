@@ -23,15 +23,15 @@ $ mod [options]
 options
     -h, --help  This help text.
 EOF
-    exit 0
+    exit
 fi
 
 if [ -f "$1" ]; then
-    # chmod 755 "$1"
+    chmod 755 "$1"
     echo "$(date) File: $1 permissions to 755" >> "$HOME"/logfiles/null.txt
 elif [ ! -f "$1" ]; then
     echo "The file: $1 was not found."
-    echo "$(date) The file: $1 was not found." >> "$HOME"/logfiles/null.txt
+    echo "$(date) File: $1 not found." >> "$HOME"/logfiles/null.txt
 fi
 
 exit
