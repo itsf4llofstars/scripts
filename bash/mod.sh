@@ -25,6 +25,16 @@ EOF
     exit
 fi
 
+clear
+# checks if there is a filename passed, exits if no filename is passed
+if [ -z "$1" ]; then
+    echo "A file name is required. Please see help."
+    echo "$ ./mod.sh -h, --help"
+    echo "No permissions changed."
+    exit
+fi
+
+# checks if the filename path exists, changes permissions if it does
 if [ -f "$1" ]; then
     chmod 755 "$1"
     echo "$(date) File: $1 permissions to 755" >>"$HOME"/logfiles/null.txt
