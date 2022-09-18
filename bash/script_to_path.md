@@ -12,7 +12,7 @@ Add:
 
 to your .bashrc file.<br><br>
 
-Navigate to your bin directory in your home directroy.<br>
+Navigate to your bin directory in your home directroy. You may have to create the bin directory in your home directory.<br>
 
 ```
 $ cd ~/bin
