@@ -36,7 +36,7 @@ fi
 
 # checks if the filename path exists, changes permissions if it does
 if [ -f "$1" ]; then
-    chmod 755 "$1"
+    chmod -c 755 "$1"
     echo "$(date) File: $1 permissions to 755" >>"$HOME"/logfiles/null.txt
 elif [ ! -f "$1" ]; then
     echo "The file: $1 was not found."
