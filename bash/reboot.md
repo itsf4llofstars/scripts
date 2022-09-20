@@ -1,6 +1,6 @@
 # reboot.sh
 
-The reboot.sh scritp echos a message to a directory path and file name. It can be used in a crontab<br>
+The reboot.sh script echos a message to a directory path and file name. It can be used in a crontab<br>
 to log each boot or re-boot of your computer.<br>
 
 The user will need to change the output path of the echo command, "directory/.../" to the path of<br>
