@@ -70,5 +70,5 @@ if [ -f "$ARCHIVE_PATHFILE" ]; then
 fi
 
 ## Logs script run to a log file
-printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
+printf "$(date +'%FT%R:%S%::z')00: $0" >>"$HOME"/logfiles/cron.log 2>&1
 
