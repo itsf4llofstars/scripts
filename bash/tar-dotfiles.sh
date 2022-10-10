@@ -3,7 +3,7 @@
 ##: TITLE:       tar-dotfiles.sh
 ##: DATE:        22/09/08 - YMD
 ##: AUTHOR:      GitHub: itsf4llofstars
-##: VERSION:     0.1.0
+##: VERSION:     0.2.0
 ##: DESCRPTION:  Creates a tar archives of common dot files
 ##: OPTIONS:     -h, --help,
 
@@ -25,7 +25,7 @@ EOF
 exit
 fi
 
-## Constant filename and pathname variables
+## Constants filename and pathname variables
 ARCHIVE_PATH="$HOME/archives"
 ARCHVIE_FILE="dotfiles-backup.tar"
 ARCHIVE_PATHFILE="$HOME/archives/dotfiles-backup.tar"
@@ -42,7 +42,7 @@ if [ -d "$TEMP_PATH" ]; then
 fi
 
 ## Checks if TEMP_PATH exists and if so copies the dot files
-## to TEMP_PATH renaming theme as *.bak files
+## to TEMP_PATH renaming them as *.bak files
 if [ -d "$TEMP_PATH" ]; then
     cp "$HOME"/.bashrc "$TEMP_PATH"/bashrc.bak
     cp "$HOME"/.bash_aliases "$TEMP_PATH"/bash_aliases.bak
@@ -50,10 +50,10 @@ if [ -d "$TEMP_PATH" ]; then
     cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
     cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
     cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
-    # cp "$HOME"/.file "$TEMP_PATH"/file.bak
+    # cp "$HOME"/. "$TEMP_PATH"/.bak
 fi
 
-## Checs if tar file exists in ARCHIVE_PATHFILE and deletes it if it doex
+## Checks if tar file exists in ARCHIVE_PATHFILE and deletes it if it does
 if [ -f "$ARCHIVE_PATHFILE" ]; then
     rm "$ARCHIVE_PATHFILE"
 fi
@@ -69,5 +69,6 @@ if [ -f "$ARCHIVE_PATHFILE" ]; then
     rm -r "$TEMP_PATH"
 fi
 
-## Logs scritp run to a log file
+## Logs script run to a log file
 printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
+
