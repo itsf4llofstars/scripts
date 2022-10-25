@@ -18,7 +18,7 @@ file. Good for being called by a crontab schedule.
 If included see additional reboot.md file for additional notes.
 
 crontab example
-@reboot "\$HOME"/path(s)_to_script/reboot.sh
+@reboot "\$HOME"/path_to_reboot_script/reboot.sh
 
 Call:
 $ ./reboot.sh [options]
