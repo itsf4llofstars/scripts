@@ -45,11 +45,11 @@ Launch crontab with:
 $ crontab -e
 ```
 
-Add:
+crontab example:
 
 > @reboot "$HOME"/path(s)_to_script/reboot.sh
-
-to your crontab.<br>
+>
+> @reboot "$HOME"/crons/reboot.sh >> "$HOME"/logfiles/crontab.log 2>&1
 
 Use [Google](https://www.google.com) or [duckduckgo](https://www.duckduckgo.com) to search on how to install a cron scheduler and how to enable<br>
 the cron daemon.
