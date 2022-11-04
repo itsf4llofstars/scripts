@@ -1,0 +1,39 @@
+/home/$USER/bashscripts//
+├── commoncats/
+│   ├── common_cats.sh*
+│   ├── git_quick_notes.txt
+│   ├── guake.txt
+│   ├── pacman.txt
+│   ├── terminal.txt
+│   └── tmuxbindings.txt
+├── attach-tmux.sh*
+├── kill-tmux.sh*
+├── mod.sh*
+├── move_mouse_pointer.sh*
+├── remap.sh*
+├── seek.sh*
+└── vimc_color.sh*
+
+OLD
+
+/home/$USER/bin//
+├── cats -> ../bashscripts/commoncats/common_cats.sh*
+├── clr*
+├── seek -> ../bashscripts/seek.sh*
+├── tma -> ../bashscripts/attach-tmux.sh*
+├── tmc -> ../tmux/tmux-arch.sh*
+├── tmk -> ../bashscripts/kill-tmux.sh*
+└── tt -> ../bashscripts/move_mouse_pointer.sh*
+
+NEW
+
+/home/$USER/bin//
+├── cats -> ../bashscripts/commoncats/common_cats.sh*
+├── clr*
+├── mod -> ../bashscripts/mod.sh*
+├── seek -> ../bashscripts/seek.sh*
+├── tma -> ../bashscripts/attach-tmux.sh*
+├── tmc -> ../tmux/tmux-arch.sh*
+├── tmk -> ../bashscripts/kill-tmux.sh*
+└── tt -> ../bashscripts/move_mouse_pointer.sh*
+
