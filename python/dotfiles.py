@@ -36,7 +36,7 @@ def sl(n: int = 5) -> None:
 
 
 # You will need to change $USER to your Linux user name
-def log_it(log_text: str, log_file: str = "null.log") -> None:
+def log_it(log_text: str, log_file: str) -> None:
     """Logs passed string to the associated log file.
 
     Args:
@@ -94,8 +94,9 @@ if __name__ == "__main__":
 
     shutil.make_archive(PATH_TO_ARCHIVE_FILENAME, TAR_FILE_EXT, PATH_TO_TEMPDIR)
 
-    if os.path.isfile(os.path.join(PATH_TO_ARCHIVE_FILENAME + "." + TAR_FILE_EXT)):
-        log_it("Test of dotfiles.py complete.")
+    # You may need to change the logfile.log to your logfile name
+    if os.path.isfile(PATH_TO_ARCHIVE_FILENAME + "." + TAR_FILE_EXT):
+        log_it("Test of dotfiles.py complete.", "logfile.log")
 
         if os.path.isdir(PATH_TO_TEMPDIR):
             shutil.rmtree(PATH_TO_TEMPDIR)
