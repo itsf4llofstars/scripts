@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This script is a work in prgress as to it's placement on gitHub.
+"""This script is a work in progress as to it's placement on gitHub.
 This script will delete directories and file that it creates for the archiving
 process: USE CAUTION!
 """
@@ -36,7 +36,7 @@ def sl(n: int = 5) -> None:
 
 
 # You will need to change $USER to your Linux user name
-def log_it(log_text: str, log_file: str) -> None:
+def log_it(log_text: str, log_file: str = "null.log") -> None:
     """Logs passed string to the associated log file.
 
     Args:
@@ -58,7 +58,8 @@ if __name__ == "__main__":
     PATH_TO_FILES = os.path.expanduser(os.path.join("~"))
     PATH_TO_ARCHIVE = os.path.expanduser(os.path.join("~", "archives"))
     PATH_TO_TEMPDIR = os.path.expanduser(os.path.join("~", "temp"))
-    ARCHIVE_FILENAME = "py-dotfiles"
+    # ARCHIVE_FILENAME = "py-dotfiles"
+    ARCHIVE_FILENAME = "test-tar"
     PATH_TO_ARCHIVE_FILENAME = os.path.expanduser(
             os.path.join("~", "archives", ARCHIVE_FILENAME)
             )
@@ -94,8 +95,7 @@ if __name__ == "__main__":
     shutil.make_archive(PATH_TO_ARCHIVE_FILENAME, TAR_FILE_EXT, PATH_TO_TEMPDIR)
 
     if os.path.isfile(os.path.join(PATH_TO_ARCHIVE_FILENAME + "." + TAR_FILE_EXT)):
-        log_it("~/cron/dotfiles/main.py Check log time stamp.")
+        log_it("Test of dotfiles.py complete.")
 
         if os.path.isdir(PATH_TO_TEMPDIR):
             shutil.rmtree(PATH_TO_TEMPDIR)
-
