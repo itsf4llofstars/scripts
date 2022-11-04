@@ -75,9 +75,6 @@ LOG_FILE="$HOME/logfiles/script_error.txt"
 
 if [ -d "$TEMP_PATH" ]; then
         rm -r "$TEMP_PATH"
-fi
-
-if [ ! -d "$TEMP_PATH" ]; then
         mkdir "$TEMP_PATH"
 fi
 
@@ -88,7 +85,7 @@ if [ -d "$TEMP_PATH" ]; then
         cp "$HOME"/.nanorc "$TEMP_PATH"/nanorc.bak
         cp "$HOME"/.gitconfig "$TEMP_PATH"/gitconfig.bak
         cp "$HOME"/.tmux.conf "$TEMP_PATH"/tmux.conf.bak
-        # cp "$HOME"/.file "$TEMP_PATH"/file.bak
+        # cp "$HOME"/. "$TEMP_PATH"/.bak
 fi
 
 if [ -f "$ARCHIVE_PATHFILE" ]; then
@@ -103,7 +100,7 @@ if [ -f "$ARCHIVE_PATHFILE" ]; then
         rm -r "$TEMP_PATH"
 fi
 
-printf "$(date +'%FT%R:%S%::z')00 $HOME/bashscripts/tar-dotfiles.sh\n" >>"$HOME"/logfiles/cron.log 2>&1
+printf "$(date +'%FT%R:%S%::z')00: $0" >>"$HOME"/logfiles/cron.log 2>&1
 
 ```
 
